@@ -18,7 +18,7 @@ const client = new ApolloClient({
 
     operation.setContext({
       headers: {
-        authorization: token? `Bearer ${token}` : ``
+        authorization: token ? `Bearer ${token}` : ``
       }
     });
   },
@@ -32,8 +32,8 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <Router>
-      <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
+      <Router>
         <>
           <Navbar />
           <Switch>
@@ -42,8 +42,8 @@ function App() {
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Switch>
         </>
-      </ApolloProvider>
-    </Router>
+      </Router>
+    </ApolloProvider>
   );
 }
 

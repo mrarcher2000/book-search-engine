@@ -13,14 +13,14 @@ import { REMOVE_BOOK } from '../utils/mutations';
 
 const SavedBooks = () => {
   const [userStateData, setUserData] = useState({});
-
+  const userData = data?.User || {};
 
   // use this to determine if `useEffect()` hook needs to run again
   const userDataLength = Object.keys(userData).length;
 
   const {loading, data} = useQuery(GET_ME);
 
-  const userData = data?.User || {};
+
 
   const [deleteBook, {error}] = useMutation(REMOVE_BOOK);
 
