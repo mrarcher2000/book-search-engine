@@ -5,14 +5,14 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         me: async (params, res) => {
-            const foundUser = await User.findOne({ _id: params._id });
+            const foundUser =  User.findOne({ _id: params._id });
             return foundUser;
         }
     },
 
     Mutation: {
         login: async (parent, { email, password }) => {
-            const user = await User.findOne({ email });
+            const user = User.findOne({ email });
 
             if (!user) {
                 throw new AuthenticationError('That user does not exist');
@@ -27,7 +27,7 @@ const resolvers = {
     },
 
     addUser: ({ body }, res) => {
-        const user = await User.create(body);
+        const user =  User.create(body);
         if (!user) {
             return res.status(400).json({ message: 'Something is wrong!' });
         }
